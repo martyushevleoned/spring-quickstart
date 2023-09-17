@@ -1,13 +1,13 @@
 package org.example.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -16,12 +16,15 @@ import lombok.NoArgsConstructor;
 @Table(name = "users")
 public class User {
     @Id
-    @Column(name = "id", columnDefinition = "int")
+    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "username", columnDefinition = "char")
+    @Column(name = "username")
     private String username;
 
-    @Column(name = "password", columnDefinition = "char")
+    @Column(name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Project> projects = new ArrayList<>();
 }
