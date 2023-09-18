@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "projects")
 public class Project {
+
     @Id
     @Column(name = "id")
     private Integer id;

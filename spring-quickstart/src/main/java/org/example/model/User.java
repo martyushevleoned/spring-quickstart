@@ -15,6 +15,7 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @Column(name = "id")
     private Integer id;

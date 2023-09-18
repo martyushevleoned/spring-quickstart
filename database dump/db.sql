@@ -1,0 +1,39 @@
+CREATE TABLE `Users` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`username` VARCHAR(255) NOT NULL,
+	`password` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Projects` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`userId` INT NOT NULL,
+	`projectName` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Tasks` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`projectId` INT NOT NULL,
+	`title` VARCHAR(255) NOT NULL,
+	`text` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Files` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`taskId` INT NOT NULL,
+	`path` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `Projects` ADD CONSTRAINT `Projects_fk0` FOREIGN KEY (`userId`) REFERENCES `Users`(`id`);
+
+ALTER TABLE `Tasks` ADD CONSTRAINT `Tasks_fk0` FOREIGN KEY (`projectId`) REFERENCES `Projects`(`id`);
+
+ALTER TABLE `Files` ADD CONSTRAINT `Files_fk0` FOREIGN KEY (`taskId`) REFERENCES `Tasks`(`id`);
+
+
+
+
+
