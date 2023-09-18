@@ -25,22 +25,22 @@ public class Main implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-//        User user = new User();
-//        user.setId(2);
-//        user.setUsername("username2");
-//        user.setPassword("password2");
-//        userRepository.save(user);
+        User user = new User();
+        user.setId(1);
+        user.setUsername("username1");
+        user.setPassword("password1");
+        userRepository.save(user);
 
-//        Project project1 = new Project();
-//        project1.setId(1);
-//        project1.setUser(user);
-//        project1.setProjectName("projectName1");
-//        projectRepository.save(project1);
+        Project project1 = new Project();
+        project1.setId(1);
+        project1.setUser(user);
+        project1.setProjectName("projectName1");
+        projectRepository.save(project1);
 
-//        Project project2 = new Project();
-//        project2.setId(2);
-//        project2.setUser(user);
-//        project2.setProjectName("projectName2");
-//        projectRepository.save(project2);
+        Project project2 = new Project();
+        project2.setId(2);
+        project2.setUser(user);
+        project2.setProjectName("projectName2");
+        projectRepository.save(project2);
     }
 }
