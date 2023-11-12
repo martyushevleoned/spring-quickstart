@@ -19,8 +19,9 @@ public class Controller {
     @Autowired
     UserService userService;
 
-    @GetMapping("/my-projects/{id}")
-    public UserDto myProjects(@PathVariable int id){
+    @CrossOrigin
+    @GetMapping("/my-projects")
+    public UserDto myProjects(@RequestParam int id){
         return userService.getMyProjects(id);
     }
 
